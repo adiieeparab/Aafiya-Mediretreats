@@ -1,20 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Page loader
-    setTimeout(function() {
-        document.getElementById('page-loader').style.display = 'none';
-    }, 2000); // Adjust time as necessary
+$(document).ready(function() {
+    // Hide the loading screen after 5 seconds
+    setTimeout(function(){
+        $('#loading').fadeOut('slow');
+    }, 5000);
 
-    // Initialize Owl Carousel
-    $("#carousel").owlCarousel({
-        lazyLoad: true,
-        items: 1,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true
-    });
-
-    // Lazy loading images
     let lazyImages = document.querySelectorAll('img.lazyload');
     if ("IntersectionObserver" in window) {
         let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
@@ -33,13 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Mobile menu toggle
-    document.getElementById('mobile-menu').addEventListener('click', function() {
-        let menu = document.getElementById('menu');
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
-        } else {
-            menu.style.display = 'block';
-        }
+    // Initialize Owl Carousel
+      $("#carousel").owlCarousel({
+        lazyLoad: true,
+        items: 3,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true
     });
 });
